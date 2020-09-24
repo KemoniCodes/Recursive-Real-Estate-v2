@@ -12,7 +12,11 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        requiered: true
+        required: true
+    },
+    isAgent: {
+        type: Boolean,
+        default: false
     },
     date: {
         type: Date,
