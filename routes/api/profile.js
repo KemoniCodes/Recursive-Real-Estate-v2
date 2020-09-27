@@ -30,7 +30,6 @@ router.get('/me', auth, async (req, res) => {
 // @route    POST api/profile
 // @desc     Create or update user profile
 // @access   Private
-
 router.post('/',
     [auth,
         [
@@ -69,7 +68,7 @@ router.post('/',
                 profile = await Profile.findOneAndUpdate(
                     { user: req.user.id },
                     { $set: profileFields },
-                    { new: true, useFindAndModify: false}                );
+                    { new: true });
 
                 return res.json(profile);
             }
@@ -85,6 +84,19 @@ router.post('/',
         }
     }
 );
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   Public
+router.get('/', async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate('user', ['name', 'email']);
+        res.json(profiles)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
 
 
 module.exports = router;
