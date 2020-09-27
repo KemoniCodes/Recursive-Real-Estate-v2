@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
-const AgentsSchema = new Schema({
+const ProfileSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
     agent: {
-        type: Schema.Types.Boolean,
-        ref: 'user'
+        type: Boolean,
+        default: false,
+        required: true
     },
-    avatar: {
+    photo: {
         type: String,
         required: true
     },
@@ -20,15 +21,11 @@ const AgentsSchema = new Schema({
     phone: {
         type: String,
         required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
+    }
 
 });
 
-module.exports = Agents = mongoose.model('agents', AgentsSchema);
+module.exports = Profile = mongoose.model('profile', ProfileSchema);
 
 //AGENT
     //IMG

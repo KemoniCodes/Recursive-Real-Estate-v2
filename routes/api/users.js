@@ -6,7 +6,7 @@ const config = require('config')
 const { check, validationResult } = require('express-validator')
 
 // Bringing in User Model 
-const User = require('../../models/User')
+const User = require('../../models/User');
 
 // @route  POST api/users
 // @desc   Register user
@@ -21,6 +21,7 @@ router.post('/', [
         .isEmail(),
     check('password', 'Please enter a password with 6 or more characters')
         .isLength({ min: 6 })
+
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -41,7 +42,7 @@ router.post('/', [
         user = new User({
             name,
             email,
-            password
+            password,
         })
 
         // Encrypt password
