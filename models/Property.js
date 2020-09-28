@@ -9,27 +9,33 @@ const PropertySchema = new Schema({
     },
     agent: {
         type: Schema.Types.Boolean,
-        ref: 'profile'
+        ref: 'profile',
+        default: false,
+        required: true,
+    },
+    name: {
+        type: String
     },
     saves: [
         {
             user: {
                 type: Schema.Types.ObjectId,
-                ref: 'users'
+                ref: 'user'
             },
             date: {
                 type: Date,
                 default: Date.now
+            },
+            name: {
+                type: String
             }
         }
     ],
     image: {
         type: String,
-        required: true
     },
     street: {
         type: String,
-        required: true
     },
     location: {
         type: String,
@@ -37,25 +43,26 @@ const PropertySchema = new Schema({
     },
     price: {
         type: String,
-        required: true
     },
     sqft: {
         type: String,
-        required: true
     },
     bedroom: {
         type: String,
-        required: true
     },
     bathroom: {
         type: String,
-        required: true
     },
     date: {
         type: Date,
         default: Date.now
-    }
-});
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+},
+);
 
 module.exports = Property = mongoose.model('property', PropertySchema);
 
