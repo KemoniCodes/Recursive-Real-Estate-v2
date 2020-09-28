@@ -150,4 +150,26 @@ router.delete('/:id', auth, async (req, res) => {
 );
 
 
+// @route  PUT api/property/save/:id
+// @desc   Save a property
+// @access Private *token needed*
+router.put('/save/:id', auth, async (req, res) => {
+    try {
+        const property = await Property.findById(req.params.id);
+
+        //Check if property has already been saved by this user
+        if (property.saves.filter(save => save.user.toString() === req.user.id).length > 0) {
+            return res.status(400).json({ msg: 'Property already saved' });
+        }
+        property.saves.unshift({ user: req.user.id });
+
+        await property.save();
+
+        res.json(property.saves)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error')
+    }
+})
+
 module.exports = router;
