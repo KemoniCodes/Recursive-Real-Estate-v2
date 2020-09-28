@@ -73,6 +73,8 @@ router.post('/',
                 return res.json(nonAgent)
             }
 
+            //IF NOT AGENT ADD PROPERTY SAVES TO PROFILE
+
         } catch (err) {
             console.error(err.message);
             res.status(500).send('Server Error');
