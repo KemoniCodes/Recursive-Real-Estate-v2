@@ -29,10 +29,8 @@ router.post('/',
         try {
             const user = await User.findById(req.user.id)
                 .select('-password');
-
             const profile = await Profile.findOne({ user: req.user.id })
             const agent = profile.agent
-            // console.log(agent)
 
             const {
                 location,
@@ -43,7 +41,6 @@ router.post('/',
                 bathroom,
                 bedroom,
             } = req.body
-
 
             //Create Property Object
             const newProperty = new Property({
@@ -76,32 +73,27 @@ router.post('/',
                 return res.json(nonAgent)
             }
 
-
-            // let property = await Property.findOne({ user: req.user.id })
-            // if (agent == true) {
-
-            //     property = await Property.findOneAndUpdate(
-            //         { newProperty },
-            //         { $set: newProperty },
-            //         { new: true }
-            //     );
-            //     console.log(property)
-            //     return res.json(newProperty);
-            // } else {
-            //     res.json(nonAgent)
-            // }
-
-            // //Create property
-            // const property = await newProperty.save()
-            // res.json(property)
-            // console.log(property)
-
         } catch (err) {
             console.error(err.message);
-            res.status(500).send('Server Error')
+            res.status(500).send('Server Error');
         }
-
     }
 );
+
+
+// @route  GET api/property
+// @desc   Get all properties
+// @access Private *token needed*
+router.get('/', auth, async (req, res) => {
+    try {
+        const properties = await Property.find().sort({ date: -1 })
+        res.json(properties)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+}
+);
+
 
 module.exports = router;
