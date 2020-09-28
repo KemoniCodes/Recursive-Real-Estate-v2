@@ -170,6 +170,33 @@ router.put('/save/:id', auth, async (req, res) => {
         console.error(err.message);
         res.status(500).send('Server Error')
     }
-})
+});
+
+
+// @route  PUT api/property/unsave/:id
+// @desc   Unsave a property
+// @access Private *token needed*
+router.put('/unsave/:id', auth, async (req, res) => {
+    try {
+        const property = await Property.findById(req.params.id);
+
+        //Check if property has already been saved by this user
+        if (property.saves.filter(save => save.user.toString() === req.user.id).length === 0) {
+            return res.status(400).json({ msg: 'Property not saved' });
+        }
+
+        //Get remove index
+        const removeIndex = property.saves.map(save => save.user.toString()).indexOf(req.user.id);
+
+        property.saves.splice(removeIndex, 1);
+
+        await property.save();
+
+        res.json(property.saves);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error')
+    }
+});
 
 module.exports = router;
