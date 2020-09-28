@@ -95,5 +95,27 @@ router.get('/', auth, async (req, res) => {
 }
 );
 
+// @route  GET api/property/:id
+// @desc   Get properties by ID
+// @access Private *token needed*
+router.get('/:id', auth, async (req, res) => {
+    try {
+        const property = await Property.findById(req.params.id);
+
+        if (!property) {
+            return res.status(400).json({ msg: 'Property not found' });
+        }
+        
+        res.json(property)
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(400).json({ msg: 'Property not found' });
+        }
+        res.status(500).send('Server Error');
+    }
+}
+);
+
 
 module.exports = router;
