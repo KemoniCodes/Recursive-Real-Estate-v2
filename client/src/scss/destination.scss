@@ -1,13 +1,15 @@
 $primary-color: #062d5e;
 
 div.row {
-    height: 100vh;
+    height: auto;
     width: 100vw;
     display: flex;
-    margin-top: 32px;
+    margin-top: 4rem;
+    margin-bottom: 7rem;
+
 
     div.destination-title {
-        height: 100vh;
+        height: auto;
         width: 50vw;
         background-color: gainsboro;
         margin-left: 24px;
@@ -18,20 +20,18 @@ div.row {
             font-size: 2.3rem;
             font-weight: 600;
             text-align: center;
-            padding: 128px;
-            padding-top: 296px;
+            padding-top: 23rem;
         }
     }
 
     div.BrainhubCarousel.pics {
-        height: 100vh;
+        height: 100%;
         width: 100vh;
     }
 
-
     div.destination-pics {
         width: 50vw;
-        height: 100vh;
+        height: auto;
         margin-left: 16px;
         margin-right: 16px;
     }
@@ -48,7 +48,7 @@ div.row {
 
 
 div.row div.BrainhubCarousel.pics {
-    height: 100vh;
+    height: 100%;
     width: 50vw;
 }
 
@@ -89,7 +89,7 @@ div.destination-name {
 }
 
 div.caption {
-    height: 50vh;
+    height: auto;
     margin-top: 8px;
     border: solid 1px darkgoldenrod;
     border-radius: 16px;

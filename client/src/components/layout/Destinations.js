@@ -1,7 +1,15 @@
 import React from 'react'
 import '../../scss/destination.scss'
+import Image1 from '../../img/la-1.jpg'
+import Image2 from '../../img/new-zealand-1.jpg'
+import Image3 from '../../img/mexico-1.jpg'
+import Image4 from '../../img/dubai-1.jpg'
+import Image5 from '../../img/canada-1.jpg'
+import Image6 from '../../img/jamaica-1.jpg'
 
-// eslint-disable-next-line 
+
+
+
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
@@ -22,7 +30,7 @@ class Destinations extends React.Component {
                             infinite
                         >
                             <div className="destination-slide">
-                                <img src="/img/la-1.jpg" alt="" />
+                                <img src={Image1} alt="" />
                                 <div className="destination-name">
                                     <h2>LOS ANGELES</h2>
                                 </div>
@@ -34,7 +42,7 @@ class Destinations extends React.Component {
 
 
                             <div className="destination-slide">
-                                <img src="/img/new-zealand-1.jpg" alt="" />
+                                <img src={Image2} alt="" />
                                 <div className="destination-name">
                                     <h2 id="zealand">NEW ZEALAND</h2>
                                 </div>
@@ -46,7 +54,7 @@ class Destinations extends React.Component {
 
                             <div
                                 className="destination-slide">
-                                <img src="/img/mexico-1.jpg" alt="" />
+                                <img src={Image3} alt="" />
                                 <div className="destination-name">
                                     <h2>MEXICO</h2>
                                 </div>
@@ -59,7 +67,7 @@ class Destinations extends React.Component {
 
                             <div
                                 className="destination-slide">
-                                <img src="/img/dubai-1.jpg" alt="" />
+                                <img src={Image4} alt="" />
                                 <div className="destination-name">
                                     <h2>DUBAI</h2>
                                 </div>
@@ -74,7 +82,7 @@ class Destinations extends React.Component {
 
                             <div
                                 className="destination-slide">
-                                <img src="/img/canada-1.jpg" alt="" />
+                                <img src={Image5} alt="" />
                                 <div className="destination-name">
                                     <h2>CANADA</h2>
                                 </div>
@@ -88,7 +96,7 @@ class Destinations extends React.Component {
 
                             <div
                                 className="destination-slide">
-                                <img src="/img/jamaica-1.jpg" alt="" />
+                                <img src={Image6} alt="" />
                                 <div className="destination-name">
                                     <h2>JAMAICA</h2>
                                 </div>
