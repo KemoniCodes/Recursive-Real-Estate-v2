@@ -39,7 +39,7 @@ const PropertySchema = new Schema({
     },
     location: {
         type: String,
-        required: true
+        // required: true
     },
     price: {
         type: String,

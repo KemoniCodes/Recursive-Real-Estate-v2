@@ -2,11 +2,33 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        //store file
+        cb(null, true)
+    } else {
+        //reject file
+        cb(null, false)
+    }
+};
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 const Property = require('../../models/Property');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
-const { findOneAndUpdate } = require('../../models/User');
+// const { findOneAndUpdate } = require('../../models/User');
+
 
 // @route  POST api/property
 // @desc   Create Property
@@ -15,13 +37,16 @@ router.post('/',
     [
         auth,
         [
-            check('location', 'Must if you are an agent or not')
+            check('image', 'Must if you are an agent or not')
                 .not()
                 .isEmpty()
-        ]
+        ],
+        upload.single('image')
     ],
     async (req, res) => {
-        const errors = validationResult(req);
+        // console.log(req.file);
+        
+        const errors = validationResult(req.file);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -34,7 +59,6 @@ router.post('/',
 
             const {
                 location,
-                image,
                 street,
                 sqft,
                 price,
@@ -49,13 +73,14 @@ router.post('/',
                 agent: profile.agent,
                 _id: req.user._id,
                 location,
-                image,
+                image: req.file.originalname,
                 street,
                 sqft,
                 price,
                 bathroom,
                 bedroom,
             });
+
 
             //Create nonAgent Object
             const nonAgent = new Property({
@@ -68,8 +93,8 @@ router.post('/',
             if (agent == true) {
                 const property = await newProperty.save();
                 res.json(property)
-                console.log(property)
-            } else {
+                // console.log(property)
+            } else if (agent == false) {
                 return res.json(nonAgent)
             }
 
