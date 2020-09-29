@@ -1,0 +1,81 @@
+div.row {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  margin-top: 32px; }
+  div.row div.destination-title {
+    height: 100vh;
+    width: 50vw;
+    background-color: gainsboro;
+    margin-left: 24px; }
+    div.row div.destination-title h2 {
+      font-family: 'Source Serif Pro', serif;
+      text-decoration: darkgoldenrod overline;
+      font-size: 2.3rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 128px;
+      padding-top: 296px; }
+  div.row div.BrainhubCarousel.pics {
+    height: 100vh;
+    width: 100vh; }
+  div.row div.destination-pics {
+    width: 50vw;
+    height: 100vh;
+    margin-left: 16px;
+    margin-right: 16px; }
+  div.row img {
+    height: 100vh;
+    width: 100vw;
+    width: 636px;
+    overflow: hidden;
+    padding: 8px; }
+
+div.row div.BrainhubCarousel.pics {
+  height: 100vh;
+  width: 50vw; }
+
+li.BrainhubCarouselItem div.destination-slide {
+  overflow: hidden;
+  width: 50vw; }
+
+div.destination-name {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  div.destination-name h2 {
+    padding-left: 40px;
+    padding-bottom: 180px;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    opacity: 1;
+    text-decoration: overline;
+    text-decoration-color: #062d5e;
+    text-decoration-style: 2px; }
+  div.destination-name h2#zealand {
+    padding: 0px 0px 180px 0px; }
+
+div.caption {
+  height: 50vh;
+  margin-top: 8px;
+  border: solid 1px darkgoldenrod;
+  border-radius: 16px;
+  text-align: center;
+  padding: 8px; }
+  div.caption h3 {
+    color: black;
+    font-weight: 200;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    opacity: .8;
+    margin-bottom: 16px;
+    font-style: normal;
+    padding-top: 20px; }
+  div.caption p {
+    letter-spacing: 0px;
+    font-size: 1rem;
+    line-height: 30px; }

@@ -1,0 +1,28 @@
+div.title h2 {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 2.3rem;
+  text-decoration: darkgoldenrod overline;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 56px;
+  margin-bottom: 24px;
+  font-weight: 600; }
+
+div.BrainhubCarousel.interiors {
+  width: 100vw;
+  height: 20vw; }
+  div.BrainhubCarousel.interiors button.BrainhubCarousel__arrows {
+    background-color: darkgoldenrod; }
+
+div.featured-interiors {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 64px; }
+  div.featured-interiors img {
+    height: 40vh;
+    width: 30vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .2s; }
+  div.featured-interiors img:hover {
+    transform: scale(1.02); }
