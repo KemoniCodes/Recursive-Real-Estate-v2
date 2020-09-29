@@ -6,7 +6,7 @@ class SearchBar extends Component {
             <div className="search-bar">
                 <form method="GET">
                     <input type="text" name="results" className="search" placeholder="Search by city, county, or postal code" />
-                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <button type="submit"><i className="fas fa-search"></i></button>
                 </form>
             </div>
         )
