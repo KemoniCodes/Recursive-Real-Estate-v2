@@ -1,44 +1,56 @@
 div.register {
   text-align: center;
-  padding: 24px;
+  height: auto;
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border: 3px solid #062d5e;
   border-radius: 16px;
-  padding: 40px;
   width: 80vw;
-  height: 90vh; }
+  margin-top: 2rem; }
   div.register h1 {
     margin-top: 24px; }
   div.register form {
-    padding: 24px;
+    padding: .8rem;
     display: grid; }
   div.register label {
-    padding: 8px; }
+    padding: 0.3rem; }
   div.register input {
     margin: 8px;
-    width: 20vw;
+    width: 40vw;
     outline: none;
-    border-radius: 5px; }
+    padding: .3rem;
+    border-radius: 5px;
+    font-size: 1rem; }
   div.register button {
-    padding: 3px;
     border-radius: 10px;
     border: darkgoldenrod;
+    cursor: pointer;
     width: 16vw;
     margin-top: 8px;
     text-align: center;
     justify-self: center;
     outline: none;
-    font-size: 12px;
     font-weight: 500;
     background-color: darkgoldenrod;
-    color: white; }
+    color: white;
+    padding: .3rem;
+    font-size: .8rem; }
   div.register a {
     text-decoration: underline;
     text-decoration-line: 3px;
     text-decoration-color: darkgoldenrod;
     color: black; }
+
+div.alert.alert-danger {
+  background: #dc3545;
+  border-radius: 16px;
+  color: #fff;
+  margin-top: 3rem;
+  margin-left: 5.5rem;
+  margin-right: 5.5rem;
+  text-align: center;
+  padding: .8rem; }

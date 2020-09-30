@@ -23,11 +23,11 @@ const Login = () => {
             <h1>Sign In</h1>
             <form onSubmit={e => onSubmit(e)}>
                 <label>
-                    Email
+                    {/* Email */}
                     <input name="email" value={email} onChange={e => onChange(e)} type="email" required placeholder="Email" />
                 </label>
                 <label>
-                    Password
+                    {/* Password */}
                     <input name="password" value={password} onChange={e => onChange(e)} type="password" placeholder="Password" />
                 </label>
                 <button value='Login' type="submit">Sign In</button>
