@@ -45,7 +45,7 @@ router.post('/',
     ],
     async (req, res) => {
         // console.log(req.file);
-        
+
         const errors = validationResult(req.file);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
@@ -98,7 +98,7 @@ router.post('/',
                 return res.json(nonAgent)
             }
 
-            //IF NOT AGENT ADD PROPERTY SAVES TO PROFILE
+            //@todo: IF NOT AGENT ADD PROPERTY SAVES TO PROFILE
 
         } catch (err) {
             console.error(err.message);
