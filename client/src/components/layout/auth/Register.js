@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import '../../../scss/register.scss';
 
 const Register = () => {
@@ -12,12 +13,12 @@ const Register = () => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         if (password !== password2) {
             console.log('Passwords do not match!')
         } else {
-            console.log(formData)
+            console.log('SUCCESS')
         }
     }
 
@@ -41,8 +42,9 @@ const Register = () => {
                     Password
                      <input name="password2" value={password2} onChange={e => onChange(e)} type="password" placeholder="Confirm Password" />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button value="Register" type="submit">Sign Up</button>
             </form>
+            <p>Already have an account? <Link to="/login">Sign In</Link> </p>
         </div>
     );
 };

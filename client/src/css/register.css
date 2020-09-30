@@ -27,6 +27,7 @@ div.register {
   div.register button {
     padding: 3px;
     border-radius: 10px;
+    border: darkgoldenrod;
     width: 16vw;
     margin-top: 8px;
     text-align: center;
@@ -36,3 +37,8 @@ div.register {
     font-weight: 500;
     background-color: darkgoldenrod;
     color: white; }
+  div.register a {
+    text-decoration: underline;
+    text-decoration-line: 3px;
+    text-decoration-color: darkgoldenrod;
+    color: black; }
