@@ -11,7 +11,7 @@ import Interiors from './Interiors'
 const Landing = () => {
     return (
         <div className="Home">
-            <ContactNav />
+            {/* <ContactNav /> */}
             <div>
                 <h1>Recursive Real Estate</h1>
                 <h3>International Luxury Realty</h3>

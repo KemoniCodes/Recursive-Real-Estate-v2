@@ -10,12 +10,12 @@ class ContactNav extends Component {
                 <header className="App-header">
                     <nav className="contact-nav">
                         <ul>
-                            <li><h4>Contact Us</h4></li>
+                            {/* <li><h4>Contact Us</h4></li>
                             <li>(555)-555-5555</li>
                             <li><i className="fab fa-linkedin"></i></li>
                             <li><i className="fab fa-facebook-square"></i></li>
                             <li><i className="fab fa-twitter-square"></i></li>
-                            <li><i className="fab fa-instagram"></i></li>
+                            <li><i className="fab fa-instagram"></i></li> */}
                         </ul>
                     </nav>
                 </header>
