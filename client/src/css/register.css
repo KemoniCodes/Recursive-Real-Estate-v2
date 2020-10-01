@@ -1,16 +1,11 @@
 div.register {
   text-align: center;
   height: auto;
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   border: 3px solid #062d5e;
   border-radius: 16px;
-  width: 80vw;
-  margin-top: 2rem; }
+  width: 60vw;
+  margin: auto;
+  margin-top: 3.5rem; }
   div.register h1 {
     margin-top: 24px; }
   div.register form {
@@ -45,12 +40,12 @@ div.register {
     text-decoration-color: darkgoldenrod;
     color: black; }
 
-div.alert.alert-danger {
+.alert.alert-danger {
   background: #dc3545;
   border-radius: 16px;
   color: #fff;
-  margin-top: 3rem;
-  margin-left: 5.5rem;
-  margin-right: 5.5rem;
+  margin: auto;
+  margin-top: 1rem;
   text-align: center;
-  padding: .8rem; }
+  padding: .8rem;
+  width: 50vw; }

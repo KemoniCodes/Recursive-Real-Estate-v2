@@ -24,7 +24,7 @@ const Login = () => {
             <form onSubmit={e => onSubmit(e)}>
                 <label>
                     {/* Email */}
-                    <input name="email" value={email} onChange={e => onChange(e)} type="email" required placeholder="Email" />
+                    <input name="email" value={email} onChange={e => onChange(e)} type="email"  placeholder="Email" />
                 </label>
                 <label>
                     {/* Password */}

@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../../actions/alert';
+import { register } from '../../../actions/auth';
 import PropTypes from 'prop-types';
 
 import '../../../scss/register.scss';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        password2: ''
     });
 
     const { name, email, password, password2 } = formData;
@@ -22,12 +24,12 @@ const Register = ({ setAlert }) => {
         if (password !== password2) {
             setAlert('Passwords do not match!', 'danger');
         } else {
-            console.log('SUCCESS');
+            register({ name, email, password });
         }
-    }
+    };
 
     return (
-        <div className="register">
+        <div className="register ">
             <h1>Register</h1>
             <form onSubmit={e => onSubmit(e)}>
                 <label>
@@ -36,15 +38,15 @@ const Register = ({ setAlert }) => {
                 </label>
                 <label>
                     {/* Email */}
-                    <input name="email" value={email} onChange={e => onChange(e)} required type="email" placeholder="Email" />
+                    <input name="email" value={email} onChange={e => onChange(e)} type="email" placeholder="Email" />
                 </label>
                 <label>
                     {/* Password */}
-                     <input name="password" value={password} onChange={e => onChange(e)} type="password" placeholder="Password" />
+                    <input name="password" value={password} onChange={e => onChange(e)} type="password" placeholder="Password" />
                 </label>
                 <label>
                     {/* Confirm password */}
-                     <input name="password2" value={password2} onChange={e => onChange(e)} type="password" placeholder="Confirm Password" />
+                    <input name="password2" value={password2} onChange={e => onChange(e)} type="password" placeholder="Confirm Password" />
                 </label>
                 <button value="Register" type="submit">Sign Up</button>
             </form>
@@ -54,7 +56,8 @@ const Register = ({ setAlert }) => {
 };
 
 Register.propTypes = {
-    setAlert: PropTypes.func.isRequired
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
