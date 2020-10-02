@@ -40,7 +40,7 @@ const Dashboard = ({
 
 
 
-    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : userDashboard},</Fragment>)
+    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : userDashboard}, {profile !== null ? <Fragment>has</Fragment> : <Fragment> has not </Fragment>}</Fragment>)
 
 };
 
