@@ -5,21 +5,25 @@ import Spinner from '../layout/Spinner';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 
-const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading, agent } }) => {
+const Dashboard = ({
+    getCurrentProfile,
+    auth: { user },
+    profile: { profile, loading, agent }
+}) => {
     useEffect(
         () => {
             getCurrentProfile();
         }, []
     );
 
-    // const isAgent = profile
     console.log(agent)
 
     const agentDashboard = (
         <Fragment>
             <NavBar />
             <div>
-                DIS A AGENT DASHBOARD HOE
+                DIS A AGENT DASHBOARD
+                <p>Welcome {user && user.name}</p>
             </div>
         </Fragment>
     );
@@ -28,7 +32,8 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading, agent
         <Fragment>
             <NavBar />
             <div>
-                DIS A USER DASHBOARD HOE
+                DIS A USER DASHBOARD
+                 <p>Welcome {user && user.name}</p>
             </div>
         </Fragment>
     );
