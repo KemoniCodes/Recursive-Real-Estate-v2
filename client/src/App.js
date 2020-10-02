@@ -6,13 +6,16 @@ import ContactNav from './components/layout/ContactNav'
 import Login from './components/layout/auth/Login';
 import Register from './components/layout/auth/Register';
 import Landing from './components/layout/Landing';
+import Footer from './components/layout/Footer';
 import Alert from './components/layout/Alert';
+import Dashboard from './components/dashboard/Dashboard';
+import PrivateRoute from './components/routing/PrivateRoute';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken'
-import Navbar from './components/layout/Navbar';
+// import Navbar from './components/layout/Navbar';
 
 
 if (localStorage.token) {
@@ -33,7 +36,9 @@ const App = () => {
           <Switch>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
+          <Footer />
         </Fragment >
       </Router>
     </Provider>

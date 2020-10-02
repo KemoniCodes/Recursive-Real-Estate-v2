@@ -20,10 +20,10 @@ class Slideshow extends React.Component {
                     autoPlay={3000}
                     animationSpeed={2000}
                 >
-                    <img src={Image1} alt=""/>
-                    <img src={Image2} alt=""/>
-                    <img src={Image3} alt=""/>
-                    <img src={Image4} alt=""/>
+                    <img src={Image1} alt="" />
+                    <img src={Image2} alt="" />
+                    <img src={Image3} alt="" />
+                    <img src={Image4} alt="" />
                 </Carousel>
             </div>
         )

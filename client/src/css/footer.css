@@ -3,7 +3,8 @@ footer {
   color: white;
   position: sticky;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  margin-top: 23%; }
   footer p {
     margin: 0px;
     font-family: 'Noto Serif', serif;

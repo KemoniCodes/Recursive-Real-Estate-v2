@@ -10,7 +10,15 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             <header>
                 <nav className="main-nav">
                     <ul>
-                        <li><a onClick={logout} >Log Out</a></li>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/Properties'>Properties</Link></li>
+                        <li><Link to='/Agents'>Agents</Link></li>
+                        <li><Link to='/Contact'>Contact</Link></li>
+                        <li><Link to='/dashboard'>Dashboard</Link></li>
+
+                        <div className="auth">
+                            <li><a onClick={logout} href="#!">Log Out</a></li>
+                        </div>
                     </ul>
                 </nav>
             </header>
@@ -23,10 +31,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <nav className="main-nav">
                     <ul>
                         <li><Link to='/'>Home</Link></li>
-                        {/* <li><Link to='/Properties'>Properties</Link></li>
-                        <li><Link to='/Agents'>Agents</Link></li>
-                        <li><Link to='/Contact'>Contact</Link></li> */}
-
                         <div className="auth">
                             <li><Link to='/login'>Sign In</Link></li>
                             <li><Link to='/register'>Register</Link></li>
@@ -54,7 +58,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     </ul> */}
                 </nav>
             </header>
-    {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
+            {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
         </div >
     );
 };

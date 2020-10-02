@@ -1,9 +1,8 @@
 import React from 'react'
-import ContactNav from '../layout/ContactNav'
-import Navbar from './Navbar'
+// import ContactNav from '../layout/ContactNav'
+import Navbar from './Navbar';
 import SearchBar from './Searchbar'
 import Slideshow from './Slideshow'
-import Footer from './Footer'
 import Destinations from './Destinations'
 import Interiors from './Interiors'
 // import { Link } from 'react-router-dom'
@@ -21,7 +20,6 @@ const Landing = () => {
             <Slideshow />
             <Destinations />
             <Interiors />
-            <Footer />
         </div >
     )
 }
