@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { type } = require('os');
 const Schema = mongoose.Schema
 const ProfileSchema = new Schema({
     user: {
@@ -21,7 +22,17 @@ const ProfileSchema = new Schema({
     phone: {
         type: String,
         required: true
-    }
+    },
+    address: {
+        type: String,
+        required: false
+    },
+    saves: [
+        {
+            type: Schema.Types.Array,
+            ref: 'property'
+        }
+    ],
 
 });
 

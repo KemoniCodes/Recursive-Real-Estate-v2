@@ -6,7 +6,8 @@ const initialState = {
     profile: null,
     agent: null,
     loading: true,
-    error: {}
+    error: {},
+    saves: [],
 };
 
 

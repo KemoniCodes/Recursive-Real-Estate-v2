@@ -49,6 +49,7 @@ router.post('/',
             phone,
             photo,
             agent,
+            saves
         } = req.body;
 
         //Build profile Object 
@@ -58,6 +59,7 @@ router.post('/',
             phone,
             photo,
             agent,
+            saves
         };
 
         try {
