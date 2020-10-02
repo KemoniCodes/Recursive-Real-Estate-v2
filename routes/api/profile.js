@@ -2,6 +2,26 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator')
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        //store file
+        cb(null, true)
+    } else {
+        //reject file
+        cb(null, false)
+    }
+};
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -36,10 +56,11 @@ router.post('/',
             check('agent', 'Please state if you are an agent')
                 .not()
                 .isEmpty()
-        ]
+        ],
+        upload.single('photo')
     ],
     async (req, res) => {
-        const errors = validationResult(req);
+        const errors = validationResult(req.file);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -47,7 +68,6 @@ router.post('/',
         const {
             jobtitle,
             phone,
-            photo,
             agent,
             saves
         } = req.body;
@@ -57,7 +77,7 @@ router.post('/',
             user: req.user.id,
             jobtitle,
             phone,
-            photo,
+            photo: req.file.originalname,
             agent,
             saves
         };

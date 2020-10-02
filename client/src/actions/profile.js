@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
+
 import {
     GET_PROFILE,
     PROFILE_ERROR,
@@ -22,7 +23,6 @@ export const getCurrentProfile = () => async dispatch => {
             payload: res.data.agent
         });
 
-
         // console.log(res.data.agent)
 
     } catch (err) {
@@ -31,7 +31,18 @@ export const getCurrentProfile = () => async dispatch => {
             type: PROFILE_ERROR,
             payload: { msg: err.response.statusText, staus: err.response.status }
         });
-
     };
-
 };
+
+//Create or update profile
+export const createProfile = (formData, history, edit = false) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': ''
+            }
+        }
+    } catch (err) {
+        
+    }
+}
