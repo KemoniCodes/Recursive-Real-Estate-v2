@@ -41,26 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </div >
     );
 
-    return (
-        <div className="main-nav">
-            <header>
-                <nav className="main-nav">
-                    {/* <ul>
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/Properties'>Properties</Link></li>
-                        <li><Link to='/Agents'>Agents</Link></li>
-                        <li><Link to='/Contact'>Contact</Link></li>
-
-                        <div className="auth">
-                            <li><Link to='/login'>Sign In</Link></li>
-                            <li><Link to='/register'>Register</Link></li>
-                        </div>
-                    </ul> */}
-                </nav>
-            </header>
-            {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks},</Fragment>)}
-        </div >
-    );
+    return !loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)
 };
 
 Navbar.propTypes = {

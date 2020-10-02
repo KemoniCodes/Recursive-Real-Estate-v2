@@ -119,3 +119,25 @@ div.search-bar {
     border: none;
     padding: 0px;
     outline: none; }
+
+Fragment {
+  display: none; }
+
+div.dashboard {
+  margin-left: 2rem; }
+  div.dashboard a {
+    text-decoration: none; }
+    div.dashboard a button.btn {
+      border-radius: 10px;
+      border: darkgoldenrod;
+      cursor: pointer;
+      width: 16vw;
+      text-align: center;
+      justify-self: center;
+      outline: none;
+      font-weight: 500;
+      background-color: darkgoldenrod;
+      color: white;
+      padding: .3rem;
+      font-size: .8rem;
+      display: block; }

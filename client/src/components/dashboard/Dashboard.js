@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../layout/Navbar';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
@@ -21,7 +22,7 @@ const Dashboard = ({
     const agentDashboard = (
         <Fragment>
             <NavBar />
-            <div>
+            <div className='dashboard'>
                 DIS A AGENT DASHBOARD
                 <p>Welcome {user && user.name}</p>
             </div>
@@ -31,16 +32,26 @@ const Dashboard = ({
     const userDashboard = (
         <Fragment>
             <NavBar />
-            <div>
+            <div className='dashboard'>
                 DIS A USER DASHBOARD
                  <p>Welcome {user && user.name}</p>
             </div>
         </Fragment>
     );
 
+    const noProfile = (
+        <Fragment>
+            <div className="dashboard">
+                <p>Profile has not been set up, please add your info. </p>
+                <Link to='/create-profile'>
+                    <button className='btn'>Create Profile</button>
+                </Link>
+            </div>
+        </Fragment>
 
+    );
 
-    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : userDashboard}, {profile !== null ? <Fragment>has</Fragment> : <Fragment> has not </Fragment>}</Fragment>)
+    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : (userDashboard)} {profile !== null ? <Fragment>has</Fragment> : (noProfile)}</Fragment>)
 
 };
 

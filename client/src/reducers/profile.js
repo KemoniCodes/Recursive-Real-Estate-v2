@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, IS_AGENT } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT } from "../actions/types";
 
 
 
@@ -32,6 +32,12 @@ export default function (state = initialState, action) {
                 error: payload,
                 loading: false
             };
+        case CLEAR_PROFILE:
+            return {
+                ...state,
+                profile: null,
+                loading: false
+            }
         default:
             return state;
     }

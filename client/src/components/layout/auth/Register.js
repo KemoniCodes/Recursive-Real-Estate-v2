@@ -55,7 +55,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         {/* Confirm password */}
                         <input name="password2" value={password2} onChange={e => onChange(e)} type="password" placeholder="Confirm Password" />
                     </label>
-                    <button value="Register" type="submit">Sign Up</button>
+                    <button className= 'btn' value="Register" type="submit">Sign Up</button>
                 </form>
                 <p>Already have an account? <Link to="/login">Sign In</Link> </p>
             </div>
