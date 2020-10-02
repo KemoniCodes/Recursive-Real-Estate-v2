@@ -10,7 +10,6 @@ export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const IS_AGENT = 'IS_AGENT';
-export const NOT_AGENT = 'NOT_AGENT';
 
 
 

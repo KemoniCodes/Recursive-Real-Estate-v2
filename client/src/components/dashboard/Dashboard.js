@@ -35,22 +35,8 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { profile, loading, agent
 
 
 
-    return (
-        <div>
-            {/* { loading && profile === null ? (<Spinner /> )? !loading && (<Fragment>  {agent === true ? (agentDashboard) : userDashboard},</Fragment>) } */}
+    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : userDashboard},</Fragment>)
 
-            {loading && profile === null ? (<Spinner />)}
-        </div>
-    )
-
-
-    //loading && profile === null ? <Spinner /> : <Fragment>
-    //     <NavBar />
-    //    <div>
-    // Dashboard
-    // </div >
-
-    // </Fragment>
 };
 
 Dashboard.propTypes = {
@@ -63,7 +49,6 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile,
-    agent: state.agent,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard)

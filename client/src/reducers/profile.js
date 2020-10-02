@@ -1,9 +1,10 @@
-import { GET_PROFILE, PROFILE_ERROR, IS_AGENT, NOT_AGENT } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, IS_AGENT } from "../actions/types";
 
 
 
 const initialState = {
     profile: null,
+    agent: null,
     loading: true,
     error: {}
 };
@@ -14,7 +15,6 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case GET_PROFILE:
-        case NOT_AGENT:
             return {
                 ...state,
                 profile: payload,
