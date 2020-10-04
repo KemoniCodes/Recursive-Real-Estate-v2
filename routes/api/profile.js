@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator')
 const multer = require('multer');
@@ -12,6 +14,7 @@ const storage = multer.diskStorage({
     }
 });
 
+
 const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
         //store file
@@ -21,10 +24,14 @@ const fileFilter = (req, file, cb) => {
         cb(null, false)
     }
 };
-const upload = multer({ storage: storage, fileFilter: fileFilter });
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+});
 
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
 
 
 // @route  GET api/profile/me
@@ -57,28 +64,31 @@ router.post('/',
                 .not()
                 .isEmpty()
         ],
-        upload.single('photo')
+        upload.single('photo'),
+
     ],
     async (req, res) => {
-        const errors = validationResult(req.file);
+        const errors = validationResult(req.body);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-
         const {
             jobtitle,
             phone,
             agent,
+            email,
             saves
         } = req.body;
 
+        console.log(req.file)
         //Build profile Object 
         const profileFields = {
             user: req.user.id,
             jobtitle,
             phone,
-            photo: req.file.originalname,
+            photo: req.file.path,
             agent,
+            email,
             saves
         };
 

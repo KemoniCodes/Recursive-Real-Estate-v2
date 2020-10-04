@@ -6,6 +6,10 @@ const ProfileSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
+    email: {
+        type: Schema.Types.String,
+        ref: 'user'
+    },
     agent: {
         type: Boolean,
         default: false,
@@ -13,15 +17,15 @@ const ProfileSchema = new Schema({
     },
     photo: {
         type: String,
-        required: true
+        // required: true
     },
     jobtitle: {
         type: String,
-        required: true
+        // required: true
     },
     phone: {
         type: String,
-        required: true
+        // required: true
     },
     address: {
         type: String,

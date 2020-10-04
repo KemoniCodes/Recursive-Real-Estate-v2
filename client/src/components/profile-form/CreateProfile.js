@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { createProfile } from '../../actions/profile';
 
-const CreateProfile = props => {
+const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState({
         jobtitle: '',
         phone: '',
         photo: '',
-        agent: null,
+        agent: '',
         saves: [],
     });
 
@@ -21,14 +23,18 @@ const CreateProfile = props => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+    const onSubmit = e => {
+        e.preventDefault();
+        createProfile(formData)
+    };
     // const unCheckRadio = e => setFormData({ ...formData, [e.target.name]: e.target.value })
 
-    
+
 
     return (
         <div>
             <h1>Create Profile</h1>
-            <form action="">
+            <form method="post"onSubmit={e => onSubmit(e)} enctype="multipart/form-data" action="/">
                 <label>
                     Job Title
                     <input type="text" value={jobtitle} onChange={e => onChange(e)} placeholder='Job Title' name='jobtitle' />
@@ -43,17 +49,18 @@ const CreateProfile = props => {
                 </label>
                 <label>
                     Agent
-                    <input type="radio" value={agent} onChange={e => onChange(e)} placeholder='Agent' name='agent' />
+                    <input type="text" onChange={e => onChange(e)} value={agent} placeholder='Agent' name='agent' />
                 </label>
-                <button className= 'btn' value="" type="submit">Create Profile</button>
+                <button className='btn' value="Upload" type="submit">Create Profile</button>
             </form>
         </div>
     )
 }
 
 CreateProfile.propTypes = {
+    createProfile: PropTypes.func.isRequired,
+};
 
-}
 
-export default CreateProfile
+export default connect(null, { createProfile })(withRouter(CreateProfile));
 
