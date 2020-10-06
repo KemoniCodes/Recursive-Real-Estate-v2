@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
+
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator')
 const multer = require('multer');
@@ -32,6 +31,8 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
 
 
 // @route  GET api/profile/me
@@ -65,9 +66,9 @@ router.post('/',
                 .isEmpty()
         ],
         upload.single('photo'),
-
     ],
     async (req, res) => {
+        console.log(req.body)
         const errors = validationResult(req.body);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
@@ -80,17 +81,17 @@ router.post('/',
             saves
         } = req.body;
 
-        console.log(req.file)
         //Build profile Object 
         const profileFields = {
             user: req.user.id,
             jobtitle,
             phone,
-            photo: req.file.path,
+            photo: req.body.photo,
             agent,
             email,
             saves
         };
+
 
         try {
             let profile = await Profile.findOne({ user: req.user.id });

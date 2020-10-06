@@ -9,6 +9,8 @@ import {
 
 } from './types';
 
+
+
 //Get current users profile
 export const getCurrentProfile = () => async dispatch => {
     try {
@@ -34,14 +36,22 @@ export const getCurrentProfile = () => async dispatch => {
 };
 
 //Create or update profile
-export const createProfile = (formData, history, edit = false) => async dispatch => {
+
+
+export const createProfile = (fd, history, edit = false) => async dispatch => {
     try {
+
         const config = {
-        }
+                header: {
+                    "Content-Type": "multipart/form-data",
+                    
+                }
 
 
+        };
 
-        const res = await axios.post('/api/profile', config, formData);
+
+        const res = await axios.post('/api/profile', fd, config);
         dispatch({
             type: GET_PROFILE,
             payload: res.data,
@@ -52,8 +62,9 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             payload: res.data.agent
         });
 
-        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
 
+
+        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
         if (!edit) {
             history.push('/dashboard');
         }

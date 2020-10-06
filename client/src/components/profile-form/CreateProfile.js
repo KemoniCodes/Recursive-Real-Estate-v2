@@ -8,25 +8,58 @@ const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState({
         jobtitle: '',
         phone: '',
-        photo: '',
         agent: '',
+        email: '',
         saves: [],
     });
+
+    const [image, setImage] = useState("");
 
     const {
         jobtitle,
         phone,
-        photo,
         agent,
-        saves
+        email,
+        saves,
     } = formData;
 
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-    const onSubmit = e => {
-        e.preventDefault();
-        createProfile(formData)
+    const onFileChange = (e) => {
+        setImage(e.target.files[0].name);
     };
+
+    const onChange = (e) => {
+        setFormData
+            ({ ...formData, [e.target.name]: e.target.value })
+    };
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const fd = new FormData();
+
+        fd.append("jobtitle", jobtitle)
+        fd.append("phone", phone)
+        fd.append("saves", saves)
+        fd.append("agent", agent)
+        fd.append('photo', image)
+
+
+        createProfile(fd, history);
+    };
+
+
+
+
+    // const handleSubmit = e => async () => {
+    //     const { selectedFile } = this.state;
+    //     const fd = new FormData();
+    //     e.preventDefault();
+    //     createProfile(fd)
+
+    // }
+
+
+
+
     // const unCheckRadio = e => setFormData({ ...formData, [e.target.name]: e.target.value })
 
 
@@ -34,27 +67,30 @@ const CreateProfile = ({ createProfile, history }) => {
     return (
         <div>
             <h1>Create Profile</h1>
-            <form method="post"onSubmit={e => onSubmit(e)} enctype="multipart/form-data" action="/">
+            <form onSubmit={(e) => onSubmit(e)}
+                encType="multipart/form-data" action="/">
                 <label>
                     Job Title
-                    <input type="text" value={jobtitle} onChange={e => onChange(e)} placeholder='Job Title' name='jobtitle' />
+                    <input type="text" value={jobtitle} onChange={(e) => onChange(e)} placeholder='Job Title' name='jobtitle' />
                 </label>
                 <label>
                     Phone Number
-                    <input type="text" value={phone} onChange={e => onChange(e)} placeholder='Phone number' name='phone' />
+                    <input type="text" value={phone} onChange={(e) => onChange(e)} placeholder='Phone number' name='phone' />
                 </label>
                 <label>
                     Photo
-                    <input type="file" value={photo} onChange={e => onChange(e)} placeholder='Photo' name='photo' />
+                    <input name='photo' type="file" onChange={(e) => onFileChange(e)}
+                        accept="image/*" />
                 </label>
                 <label>
                     Agent
-                    <input type="text" onChange={e => onChange(e)} value={agent} placeholder='Agent' name='agent' />
+                    <input type="text" onChange={(e) => onChange(e)} value={agent} placeholder='Agent' name="agent" />
                 </label>
-                <button className='btn' value="Upload" type="submit">Create Profile</button>
+                <button className='btn' type="submit">Create Profile</button>
             </form>
         </div>
     )
+
 }
 
 CreateProfile.propTypes = {

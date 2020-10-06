@@ -9,7 +9,7 @@ import { getCurrentProfile } from '../../actions/profile';
 const Dashboard = ({
     getCurrentProfile,
     auth: { user },
-    profile: { profile, loading, agent }
+    profile: { profile, loading, agent, photo }
 }) => {
     useEffect(
         () => {
@@ -17,7 +17,6 @@ const Dashboard = ({
         }, []
     );
 
-    console.log(agent)
 
     const agentDashboard = (
         <Fragment>
@@ -60,11 +59,13 @@ Dashboard.propTypes = {
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     agent: PropTypes.bool.isRequired,
+    photo: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile,
+    photo: state.photo
 });
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard)
