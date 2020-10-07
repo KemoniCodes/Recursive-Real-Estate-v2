@@ -1,9 +1,10 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT, GET_PROFILES } from "../actions/types";
 
 
 
 const initialState = {
     profile: null,
+    profiles: [],
     agent: null,
     loading: true,
     error: {},
@@ -20,13 +21,19 @@ export default function (state = initialState, action) {
                 ...state,
                 profile: payload,
                 loading: false
+            };
+        case GET_PROFILES:
+            return {
+                ...state,
+                profiles: payload,
+                loading: false
             }
         case IS_AGENT:
             return {
                 ...state,
                 agent: payload,
                 loading: false
-            }
+            };
         case PROFILE_ERROR:
             return {
                 ...state,
@@ -38,7 +45,7 @@ export default function (state = initialState, action) {
                 ...state,
                 profile: null,
                 loading: false
-            }
+            };
         default:
             return state;
     }

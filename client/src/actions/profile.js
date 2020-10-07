@@ -4,6 +4,7 @@ import { setAlert } from './alert';
 
 import {
     GET_PROFILE,
+    GET_PROFILES,
     PROFILE_ERROR,
     IS_AGENT,
     CLEAR_PROFILE,
@@ -37,9 +38,32 @@ export const getCurrentProfile = () => async dispatch => {
     };
 };
 
+//Get all profiles
+export const getProfiles = () => async dispatch => {
+    dispatch({ type: CLEAR_PROFILE });
+    try {
+        const res = await axios.get('/api/profile');
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data,
+        });
+
+        dispatch({
+            type: IS_AGENT,
+            payload: res.data.agent
+        });
+
+
+    } catch (err) {
+
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.statusText, staus: err.response.status }
+        });
+    };
+};
+
 //Create or update profile
-
-
 export const createProfile = (fd, history, edit = false) => async dispatch => {
     try {
 
