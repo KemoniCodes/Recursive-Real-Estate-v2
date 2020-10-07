@@ -4,7 +4,6 @@ import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT } from "../actions/
 
 const initialState = {
     profile: null,
-    photo: '',
     agent: null,
     loading: true,
     error: {},

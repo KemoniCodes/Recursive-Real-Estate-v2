@@ -49,3 +49,13 @@ div.register {
   text-align: center;
   padding: .8rem;
   width: 50vw; }
+
+.alert.alert-success {
+  background: #28a745;
+  border-radius: 16px;
+  color: #fff;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+  padding: .8rem;
+  width: 50vw; }

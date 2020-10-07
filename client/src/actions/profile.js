@@ -42,12 +42,9 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
     try {
 
         const config = {
-                header: {
-                    "Content-Type": "multipart/form-data",
-                    
-                }
-
-
+            header: {
+                "Content-Type": "multipart/form-data",
+            }
         };
 
 
@@ -62,15 +59,12 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
             payload: res.data.agent
         });
 
-
-
-        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
+        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
         if (!edit) {
             history.push('/dashboard');
         }
     } catch (err) {
         const errors = err.response.data.errors;
-
         if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         };

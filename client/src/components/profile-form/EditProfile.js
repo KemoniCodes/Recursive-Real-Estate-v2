@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history }) => {
     const [formData, setFormData] = useState({
         jobtitle: '',
         phone: '',
@@ -13,7 +13,25 @@ const CreateProfile = ({ createProfile, history }) => {
         saves: [],
     });
 
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState("No file chosen");
+
+    useEffect(() => {
+        getCurrentProfile();
+
+        setFormData({
+            jobtitle: loading || !profile.jobtitle ? '' : profile.jobtitle,
+            phone: loading || !profile.phone ? '' : profile.phone,
+            agent: loading || !profile.agent ? '' : profile.agent,
+            email: loading || !profile.email ? '' : profile.email,
+            saves: loading || !profile.saves ? '' : profile.saves,
+
+
+        });
+
+        setImage({
+            image: loading || !profile.photo ? '' : profile.photo,
+        });
+    }, [loading]);
 
     const {
         jobtitle,
@@ -43,7 +61,7 @@ const CreateProfile = ({ createProfile, history }) => {
         fd.append('photo', image)
 
 
-        createProfile(fd, history);
+        createProfile(fd, history, true);
     };
 
     return (
@@ -70,6 +88,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 </label>
                 <button className='btn' type="submit">Create Profile</button>
 
+
                 <Link to='/dashboard'>
                     <button className='btn'>
                         Go Back
@@ -80,10 +99,15 @@ const CreateProfile = ({ createProfile, history }) => {
     )
 }
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
     createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => ({
+    profile: state.profile
+});
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(EditProfile));
 

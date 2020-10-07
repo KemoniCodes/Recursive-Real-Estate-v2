@@ -1,5 +1,6 @@
 $primary-color: #062d5e;
 $danger-color: #dc3545;
+$success-color: #28a745;
 
 
 div.register {
@@ -61,12 +62,22 @@ div.register {
         background: $danger-color;
         border-radius: 16px;
         color: #fff;
-      
         margin: auto;
         margin-top: 1rem;
         text-align: center;
         padding:.8rem;
         width: 50vw;
         // width: 80px;
+    };
+
+    .alert.alert-success {
+        background: $success-color;
+        border-radius: 16px;
+        color: #fff;
+        margin: auto;
+        margin-top: 1rem;
+        text-align: center;
+        padding:.8rem;
+        width: 50vw;
     };
 

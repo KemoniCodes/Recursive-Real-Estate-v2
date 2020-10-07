@@ -4,6 +4,7 @@ import NavBar from '../layout/Navbar';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { connect } from 'react-redux';
+import DashboardActions from './DashboardActions';
 import { getCurrentProfile } from '../../actions/profile';
 
 const Dashboard = ({
@@ -22,6 +23,7 @@ const Dashboard = ({
         <Fragment>
             <NavBar />
             <div className='dashboard'>
+                <DashboardActions />
                 DIS A AGENT DASHBOARD
                 <p>Welcome {user && user.name}</p>
             </div>
