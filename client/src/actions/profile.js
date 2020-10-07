@@ -5,6 +5,7 @@ import { setAlert } from './alert';
 import {
     GET_PROFILE,
     GET_PROFILES,
+    GET_AGENT_PROFILES,
     PROFILE_ERROR,
     IS_AGENT,
     CLEAR_PROFILE,
@@ -18,6 +19,7 @@ import {
 export const getCurrentProfile = () => async dispatch => {
     try {
         const res = await axios.get('/api/profile/me');
+
         dispatch({
             type: GET_PROFILE,
             payload: res.data,
@@ -39,21 +41,26 @@ export const getCurrentProfile = () => async dispatch => {
 };
 
 
-//Get all profiles
-export const getProfiles = () => async dispatch => {
+
+//Get all profiles that are agents
+export const getAgentProfiles = () => async dispatch => {
     dispatch({ type: CLEAR_PROFILE });
     try {
         const res = await axios.get('/api/profile');
+        const agent = res.data.map(obj => obj)
+        const isTrue = agent.filter(function (person) {
+            return person.agent == true;
+          });
+          
         dispatch({
-            type: GET_PROFILES,
-            payload: res.data,
+            type: GET_AGENT_PROFILES,
+            payload: isTrue
         });
 
-        dispatch({
-            type: IS_AGENT,
-            payload: res.data.agent
-        });
-
+        // dispatch({
+        //     type: IS_AGENT,
+        //     payload: res.data.agent
+        // });
 
     } catch (err) {
 
@@ -63,6 +70,7 @@ export const getProfiles = () => async dispatch => {
         });
     };
 };
+
 
 
 //Get profile by ID
@@ -86,6 +94,8 @@ export const getProfileById = userId => async dispatch => {
     };
 };
 
+
+
 //Create or update profile
 export const createProfile = (fd, history, edit = false) => async dispatch => {
     try {
@@ -95,7 +105,6 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
                 "Content-Type": "multipart/form-data",
             }
         };
-
 
         const res = await axios.post('/api/profile', fd, config);
         dispatch({
@@ -124,6 +133,8 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
         });
     }
 };
+
+
 
 //Delete Account and Profile
 export const deleteAccount = id => async dispatch => {

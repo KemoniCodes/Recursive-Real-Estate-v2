@@ -1,4 +1,5 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT, GET_PROFILES } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, IS_AGENT, GET_AGENT_PROFILES, GET_PROFILES } from "../actions/types";
+import Profiles from "../components/profiles/AgentProfiles";
 
 
 
@@ -14,7 +15,6 @@ const initialState = {
 
 export default function (state = initialState, action) {
     const { type, payload } = action;
-
     switch (type) {
         case GET_PROFILE:
             return {
@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
                 loading: false
             };
         case GET_PROFILES:
+        case GET_AGENT_PROFILES:
             return {
                 ...state,
                 profiles: payload,

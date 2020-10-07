@@ -12,7 +12,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     <ul>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/Properties'>Properties</Link></li>
-                        <li><Link to='/Agents'>Agents</Link></li>
+                        <li><Link to='/agents'>Agents</Link></li>
                         <li><Link to='/Contact'>Contact</Link></li>
                         <li><Link to='/dashboard'>Dashboard</Link></li>
 
@@ -31,6 +31,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <nav className="main-nav">
                     <ul>
                         <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/agents'>Agents</Link></li>
                         <div className="auth">
                             <li><Link to='/login'>Sign In</Link></li>
                             <li><Link to='/register'>Register</Link></li>
