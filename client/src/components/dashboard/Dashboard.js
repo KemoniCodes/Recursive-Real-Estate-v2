@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { connect } from 'react-redux';
 import DashboardActions from './DashboardActions';
-import { getCurrentProfile } from '../../actions/profile';
+import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
 const Dashboard = ({
     getCurrentProfile,
+    deleteAccount,
     auth: { user },
     profile: { profile, loading, agent, photo }
 }) => {
@@ -26,6 +27,8 @@ const Dashboard = ({
                 <DashboardActions />
                 DIS A AGENT DASHBOARD
                 <p>Welcome {user && user.name}</p>
+
+                <button className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
             </div>
         </Fragment>
     );
@@ -36,6 +39,8 @@ const Dashboard = ({
             <div className='dashboard'>
                 DIS A USER DASHBOARD
                  <p>Welcome {user && user.name}</p>
+
+                <button className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
             </div>
         </Fragment>
     );
@@ -58,6 +63,7 @@ const Dashboard = ({
 
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
+    deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     agent: PropTypes.bool.isRequired,
@@ -70,4 +76,4 @@ const mapStateToProps = state => ({
     photo: state.photo
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard)
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard)

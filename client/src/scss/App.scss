@@ -1,4 +1,6 @@
   $primary-color: #062d5e;
+  $danger-color: #dc3545;
+  $success-color: #28a745;
 
   body {
     margin: 0;
@@ -184,7 +186,6 @@ div.dashboard {
         border: darkgoldenrod;
         cursor: pointer;
         width: 16vw;
-        // margin-top: 8px;
         text-align: center;
         justify-self: center;
         outline: none;
@@ -194,10 +195,23 @@ div.dashboard {
         padding: .3rem;
         font-size: .8rem;
         display: block;
-        // margin: auto;
-        // margin-left: 1rem;
     }
   }
+  button.danger-btn {
+    border-radius: 10px;
+    border: $danger-color;
+    cursor: pointer;
+    width: 16vw;
+    text-align: center;
+    justify-self: center;
+    outline: none;
+    font-weight: 500;
+    background-color: $danger-color;
+    color: white;
+    padding: .3rem;
+    font-size: .8rem;
+    display: block;
+}
 }
 
 
