@@ -1,0 +1,96 @@
+div.dashboard {
+  margin-left: 6rem;
+  margin-top: 4rem; }
+  div.dashboard div.row {
+    height: auto;
+    width: auto;
+    margin: auto;
+    margin-top: 32px; }
+  div.dashboard img {
+    display: inline-block;
+    height: 50vh;
+    width: 25vw;
+    padding: 8px; }
+  div.dashboard div.agent-info {
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 32px;
+    width: auto; }
+    div.dashboard div.agent-info p {
+      margin: 0px;
+      padding: 8px;
+      padding-bottom: 0px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 20px; }
+      div.dashboard div.agent-info p.title {
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: uppercase; }
+  div.dashboard h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    padding: .2rem 12rem .2rem 6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-style: normal; }
+  div.dashboard p {
+    font-size: 1.5rem; }
+  div.dashboard ul {
+    list-style: none;
+    padding-left: 2rem;
+    margin-top: 1rem; }
+    div.dashboard ul li {
+      margin-bottom: .2rem; }
+      div.dashboard ul li span {
+        padding-right: .25rem; }
+  div.dashboard a {
+    text-decoration: none; }
+    div.dashboard a button.btn {
+      border-radius: 10px;
+      border: darkgoldenrod;
+      cursor: pointer;
+      width: 16vw;
+      text-align: center;
+      justify-self: center;
+      outline: none;
+      font-weight: 500;
+      background-color: darkgoldenrod;
+      color: white;
+      padding: .3rem;
+      font-size: .8rem;
+      display: block; }
+  div.dashboard button.danger-btn {
+    border-radius: 10px;
+    border: #dc3545;
+    cursor: pointer;
+    text-align: center;
+    justify-self: center;
+    outline: none;
+    font-weight: 500;
+    background-color: #dc3545;
+    color: white;
+    padding: .4rem 1rem .4rem 1rem;
+    font-size: .8rem;
+    display: block;
+    position: absolute;
+    top: 63rem;
+    right: 5rem; }
+  div.dashboard div.dashboard-actions {
+    margin-bottom: 2.5rem;
+    margin-top: 4rem;
+    color: #062d5e; }
+    div.dashboard div.dashboard-actions a {
+      padding: .2rem 5.5rem .2rem 5.5rem;
+      border-bottom: 1px solid gainsboro;
+      border-radius: .5rem;
+      margin: 0 2.5rem 0 0;
+      font-weight: 100;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.14rem; }
+    div.dashboard div.dashboard-actions a:hover {
+      background-color: gainsboro; }
+    div.dashboard div.dashboard-actions a:visited {
+      color: black; }
+    div.dashboard div.dashboard-actions a:active {
+      border-bottom: 1px solid #062d5e; }

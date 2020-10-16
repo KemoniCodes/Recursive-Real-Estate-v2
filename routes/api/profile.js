@@ -10,12 +10,13 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
-    }
+    },
+
 });
 
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
         //store file
         cb(null, true)
     } else {
@@ -29,6 +30,7 @@ const upload = multer({
         fileSize: 1024 * 1024 * 5
     },
     fileFilter: fileFilter
+
 });
 
 const Profile = require('../../models/Profile');
@@ -65,18 +67,20 @@ router.post('/',
                 .not()
                 .isEmpty()
         ],
-        upload.single('photo'),
+        upload.single('photo')
     ],
     async (req, res) => {
         const errors = validationResult(req.body);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
+
         const {
             jobtitle,
             phone,
             agent,
             email,
+            // photo,
             saves
         } = req.body;
 
@@ -85,7 +89,7 @@ router.post('/',
             user: req.user.id,
             jobtitle,
             phone,
-            photo: req.body.photo,
+            photo: req.body.photo || req.file.path,
             agent,
             email,
             saves

@@ -17,19 +17,16 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
     useEffect(() => {
         getCurrentProfile();
-
         setFormData({
             jobtitle: loading || !profile.jobtitle ? '' : profile.jobtitle,
             phone: loading || !profile.phone ? '' : profile.phone,
             agent: loading || !profile.agent ? '' : profile.agent,
             email: loading || !profile.email ? '' : profile.email,
-            saves: loading || !profile.saves ? '' : profile.saves,
-
-
+            saves: loading || !profile.saves ? '' : profile.saves
         });
 
         setImage({
-            image: loading || !profile.photo ? '' : profile.photo,
+            image: loading || !profile.photo ? '' : profile.photo
         });
     }, [loading]);
 
@@ -43,6 +40,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
     const onFileChange = (e) => {
         setImage(e.target.files[0].name);
+        console.log(e.target.files)
     };
 
     const onChange = (e) => {

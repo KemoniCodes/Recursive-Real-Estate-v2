@@ -1,0 +1,146 @@
+$primary-color: #062d5e;
+$danger-color: #dc3545;
+$success-color: #28a745;
+
+div.dashboard {
+    margin-left: 6rem;
+    margin-top:4rem;
+
+
+    div.row {
+        height: auto;
+        width: auto;
+        margin: auto;
+        margin-top: 32px;
+        // justify-content: center;
+    }
+    
+    img {
+        display: inline-block;
+        height: 50vh;
+        width: 25vw;
+        padding: 8px;
+    }
+    
+    div.agent-info {
+        border-bottom: 1px solid gainsboro;
+        // background-color: gainsboro;
+        // margin-left: 8px;
+        // margin-right: 8px;
+        margin-bottom: 32px;
+        width: auto;
+    
+            p {
+                margin: 0px;
+                padding: 8px;
+                padding-bottom: 0px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                font-size: 20px;
+    
+                    &.title {
+                        font-weight: 500;
+                        font-size: 16px;
+                        text-transform: uppercase;
+                    }
+            }
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        padding:.2rem 12rem .2rem 6rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 2rem;
+        margin-top: 1rem;
+
+        li {
+            margin-bottom: .2rem;
+            span {
+                padding-right: .25rem;
+            }
+        }
+    }
+  
+    a {
+    text-decoration: none;
+    
+    button.btn {
+        border-radius: 10px;
+        border: darkgoldenrod;
+        cursor: pointer;
+        width: 16vw;
+        text-align: center;
+        justify-self: center;
+        outline: none;
+        font-weight: 500;
+        background-color: darkgoldenrod;
+        color: white;
+        padding: .3rem;
+        font-size: .8rem;
+        display: block;
+    }
+  }
+
+  button.danger-btn {
+    border-radius: 10px;
+    border: $danger-color;
+    cursor: pointer;
+    text-align: center;
+    justify-self: center;
+    outline: none;
+    font-weight: 500;
+    background-color: $danger-color;
+    color: white;
+    padding:.4rem 1rem .4rem 1rem;    
+    font-size: .8rem;
+    display: block;
+    position: absolute;
+    top: 63rem;
+    right: 5rem;
+}
+
+    div.dashboard-actions {
+        margin-bottom: 2.5rem;
+        margin-top: 4rem;
+        color: #062d5e;
+        // text-align: center;
+      
+        a {
+            padding:.2rem 5.5rem .2rem 5.5rem;
+            border-bottom: 1px solid gainsboro;
+            border-radius: .5rem;
+            // letter-spacing: 1px;
+            margin: 0 2.5rem 0 0;
+            font-weight: 100;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.14rem; 
+        }
+        a:hover {
+            // text-decoration: underline;
+            background-color: gainsboro;
+
+        }
+        a:visited {
+            color: black;
+        }
+
+        a:active {
+            border-bottom: 1px solid #062d5e;
+        }
+    } 
+
+
+    
+}

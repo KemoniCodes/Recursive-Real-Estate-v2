@@ -177,42 +177,7 @@
 
 
 
-div.dashboard {
-    margin-left: 2rem;
-  a {
-      text-decoration: none;
-    button.btn {
-        border-radius: 10px;
-        border: darkgoldenrod;
-        cursor: pointer;
-        width: 16vw;
-        text-align: center;
-        justify-self: center;
-        outline: none;
-        font-weight: 500;
-        background-color: darkgoldenrod;
-        color: white;
-        padding: .3rem;
-        font-size: .8rem;
-        display: block;
-    }
-  }
-  button.danger-btn {
-    border-radius: 10px;
-    border: $danger-color;
-    cursor: pointer;
-    width: 16vw;
-    text-align: center;
-    justify-self: center;
-    outline: none;
-    font-weight: 500;
-    background-color: $danger-color;
-    color: white;
-    padding: .3rem;
-    font-size: .8rem;
-    display: block;
-}
-}
+
 
 
 

@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
+import '../../scss/dashboard.scss';
 import { Link } from 'react-router-dom';
 import NavBar from '../layout/Navbar';
 import PropTypes from 'prop-types';
@@ -24,9 +25,23 @@ const Dashboard = ({
         <Fragment>
             <NavBar />
             <div className='dashboard'>
+                <h3>Agent Dashboard</h3>
                 <DashboardActions />
-                DIS A AGENT DASHBOARD
-                <p>Welcome {user && user.name}</p>
+                <p>Welcome, {user && user.name}!</p>
+
+                <div className="row">
+                    <div>
+                        <img src={profile && profile.photo} alt="" />
+                        <div className="agent-info">
+                            <p>{profile && profile.name}</p>
+                            <p className="title">{profile && profile.jobtitle}</p>
+                            <ul>
+                                <li><span>|</span> {profile && profile.phone}</li>
+                                <li><span>|</span> {profile && profile.email}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
                 <button className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
             </div>
@@ -37,8 +52,8 @@ const Dashboard = ({
         <Fragment>
             <NavBar />
             <div className='dashboard'>
-                DIS A USER DASHBOARD
-                 <p>Welcome {user && user.name}</p>
+                <h3>Dashboard</h3>
+                <p>Welcome, {user && user.name}!</p>
 
                 <button className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
             </div>
@@ -57,7 +72,7 @@ const Dashboard = ({
 
     );
 
-    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : (userDashboard)} {profile !== null ? <Fragment>has</Fragment> : (noProfile)}</Fragment>)
+    return loading && profile === null ? <Spinner /> : !loading && (<Fragment>  {agent === true ? (agentDashboard) : (userDashboard)} {profile !== null ? <Fragment /> : (noProfile)}</Fragment>)
 
 };
 
@@ -67,13 +82,11 @@ Dashboard.propTypes = {
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     agent: PropTypes.bool.isRequired,
-    photo: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile,
-    photo: state.photo
 });
 
 export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard)

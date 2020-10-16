@@ -102,7 +102,7 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
 
         const config = {
             header: {
-                "Content-Type": "multipart/form-data",
+                "Content-Type": "multipart/form-data"
             }
         };
 
@@ -111,6 +111,7 @@ export const createProfile = (fd, history, edit = false) => async dispatch => {
             type: GET_PROFILE,
             payload: res.data,
         });
+
 
         dispatch({
             type: IS_AGENT,
@@ -146,7 +147,7 @@ export const deleteAccount = id => async dispatch => {
             dispatch({ type: ACCOUNT_DELETED });
 
 
-            dispatch(setAlert('Your account has been permanantly deleted'));
+            dispatch(setAlert('Your account has been permanantly deleted', 'danger'));
         } catch (err) {
             dispatch({
                 type: PROFILE_ERROR,

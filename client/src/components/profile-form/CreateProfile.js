@@ -26,11 +26,11 @@ const CreateProfile = ({ createProfile, history }) => {
     const onFileChange = (e) => {
         setImage(e.target.files[0].name);
     };
-
     const onChange = (e) => {
         setFormData
             ({ ...formData, [e.target.name]: e.target.value })
     };
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -40,17 +40,17 @@ const CreateProfile = ({ createProfile, history }) => {
         fd.append("phone", phone)
         fd.append("saves", saves)
         fd.append("agent", agent)
-        fd.append('photo', image)
-
+        fd.append("photo", image)
 
         createProfile(fd, history);
     };
+
 
     return (
         <div>
             <h1>Create Profile</h1>
             <form onSubmit={(e) => onSubmit(e)}
-                encType="multipart/form-data" action="/">
+                encType="multipart/form-data" action="/" method="POST">
                 <label>
                     Job Title
                     <input type="text" value={jobtitle} onChange={(e) => onChange(e)} placeholder='Job Title' name='jobtitle' />
