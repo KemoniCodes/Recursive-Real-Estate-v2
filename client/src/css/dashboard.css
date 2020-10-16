@@ -1,6 +1,7 @@
 div.dashboard {
   margin-left: 6rem;
-  margin-top: 4rem; }
+  margin-top: 4rem;
+  margin-bottom: 26.8rem; }
   div.dashboard div.row {
     height: auto;
     width: auto;
@@ -75,6 +76,8 @@ div.dashboard {
     position: absolute;
     top: 63rem;
     right: 5rem; }
+    div.dashboard button.danger-btn#user {
+      top: 25rem; }
   div.dashboard div.dashboard-actions {
     margin-bottom: 2.5rem;
     margin-top: 4rem;
@@ -93,4 +96,5 @@ div.dashboard {
     div.dashboard div.dashboard-actions a:visited {
       color: black; }
     div.dashboard div.dashboard-actions a:active {
-      border-bottom: 1px solid #062d5e; }
+      border-bottom: 1px solid #062d5e;
+      background-color: gainsboro; }

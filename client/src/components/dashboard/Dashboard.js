@@ -55,7 +55,7 @@ const Dashboard = ({
                 <h3>Dashboard</h3>
                 <p>Welcome, {user && user.name}!</p>
 
-                <button className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
+                <button id='user' className='danger-btn' onClick={() => deleteAccount()}>Delete My Account</button>
             </div>
         </Fragment>
     );
