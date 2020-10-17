@@ -80,13 +80,15 @@ div.dashboard {
       top: 25rem; }
   div.dashboard div.dashboard-actions {
     margin-bottom: 2.5rem;
+    margin-right: 1rem;
     margin-top: 4rem;
     color: #062d5e; }
     div.dashboard div.dashboard-actions a {
-      padding: .2rem 5.5rem .2rem 5.5rem;
+      padding: .2rem 1.5rem .2rem 1.5rem;
       border-bottom: 1px solid gainsboro;
       border-radius: .5rem;
-      margin: 0 2.5rem 0 0;
+      color: black;
+      margin: 0 1rem 0 0;
       font-weight: 100;
       text-align: center;
       font-style: italic;

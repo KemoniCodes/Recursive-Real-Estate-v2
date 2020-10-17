@@ -1,0 +1,73 @@
+div.property-page {
+  height: auto;
+  width: 100%; }
+  div.property-page h2 {
+    border-bottom: solid 2px darkgoldenrod;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    max-width: 1200px;
+    margin-top: 3rem;
+    margin-bottom: 3rem; }
+  div.property-page div.row {
+    display: flex;
+    flex-flow: wrap;
+    height: auto;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 32px;
+    justify-content: center; }
+  div.property-page img {
+    display: inline-block;
+    height: 45vh;
+    width: 25vw;
+    padding: 8px; }
+  div.property-page div.agent-info {
+    border: 2px solid rgba(6, 45, 94, 0.8);
+    background-color: rgba(6, 45, 94, 0.8);
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 32px; }
+    div.property-page div.agent-info p {
+      margin: 0px;
+      padding: 8px;
+      padding-bottom: 0px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 20px;
+      color: whitesmoke; }
+      div.property-page div.agent-info p.location {
+        font-weight: 500;
+        font-size: 15px;
+        font-style: italic; }
+  div.property-page ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 10px;
+    color: gainsboro;
+    text-align: center; }
+  div.property-page div.details {
+    display: flex;
+    justify-content: center; }
+    div.property-page div.details i {
+      padding-right: 5px; }
+    div.property-page div.details li {
+      padding-right: 16px; }
+  div.property-page li {
+    padding-bottom: 10px; }
+    div.property-page li.price {
+      border: 1px solid darkgoldenrod;
+      padding: 5px;
+      background-color: darkgoldenrod;
+      margin-left: 24px;
+      margin-right: 24px;
+      margin-bottom: 16px;
+      margin-top: 16px;
+      opacity: .8;
+      color: whitesmoke;
+      font-weight: 550; }

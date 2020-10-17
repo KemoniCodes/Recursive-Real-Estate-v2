@@ -11,7 +11,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <nav className="main-nav">
                     <ul>
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/Properties'>Properties</Link></li>
+                        <li><Link to='/properties'>Properties</Link></li>
                         <li><Link to='/agents'>Agents</Link></li>
                         <li><Link to='/Contact'>Contact</Link></li>
                         <li><Link to='/dashboard'>Dashboard</Link></li>

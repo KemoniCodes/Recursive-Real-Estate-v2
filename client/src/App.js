@@ -13,6 +13,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
 import AgentProfiles from './components/profiles/AgentProfiles';
+import Properties from './components/properties/Properties';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -43,6 +44,8 @@ const App = () => {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/create-profile" component={CreateProfile} />
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+            <PrivateRoute exact path="/properties" component={Properties} />
+
           </Switch>
           <Footer />
         </Fragment >

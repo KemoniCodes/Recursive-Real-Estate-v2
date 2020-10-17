@@ -31,7 +31,6 @@ const AgentProfiles = ({ getAgentProfiles, profile: { profiles, loading } }) => 
                     ) : <h2>No agents found</h2>}
                 </div>
             </Fragment>}
-
         </Fragment>
     )
 }

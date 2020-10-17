@@ -15,6 +15,9 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const IS_AGENT = 'IS_AGENT';
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
+export const GET_PROPERTY = 'GET_PROPERTY';
+export const GET_PROPERTIES = 'GET_PROPERTIES';
+
 
 
 

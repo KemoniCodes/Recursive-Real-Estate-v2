@@ -9,7 +9,9 @@ import {
     PROFILE_ERROR,
     IS_AGENT,
     CLEAR_PROFILE,
-    ACCOUNT_DELETED
+    ACCOUNT_DELETED,
+    GET_PROPERTY,
+    GET_PROPERTIES
 
 } from './types';
 
@@ -156,3 +158,9 @@ export const deleteAccount = id => async dispatch => {
         }
     }
 };
+
+
+
+
+
+//Get properties posted by user
